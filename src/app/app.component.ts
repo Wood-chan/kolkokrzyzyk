@@ -41,7 +41,7 @@ export class AppComponent {
       }
       this.currnetPlayer = this.switchCurrentPlayer();
     } else {
-      alert('Nie możesz tego zrobić.');
+      alert('To pole jest już zajęte!');
     }
   }
 
