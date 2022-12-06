@@ -16,32 +16,32 @@ const winStates = [
   [0, 0, 1, 0, 1, 0, 1, 0, 0],
   [1, 0, 0, 1, 0, 0, 1, 0, 0],
   [0, 1, 0, 0, 1, 0, 0, 1, 0],
-  [0, 0, 1, 0, 0, 1, 0, 0, 1]
-]
+  [0, 0, 1, 0, 0, 1, 0, 0, 1],
+];
 
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  player1 = new Player('Bibi');
-  player2 = new Player('Ganz');
+  player1 = new Player('Krzyżyk');
+  player2 = new Player('Kółko');
   moveCounter = 0;
   currnetPlayer = this.player1;
   board = [null, null, null, null, null, null, null, null, null];
 
-  move(index:number, player: Player) {
+  move(index: number, player: Player) {
     if (this.player1.state[index] === 0 && this.player2.state[index] === 0) {
       player.state[index] = 1;
       this.moveCounter++;
       this.board[index] = this.currnetPlayer === this.player1 ? 'x' : 'o';
       if (this.moveCounter > 4) {
         this.checkWin(this.currnetPlayer);
-      }    
+      }
       this.currnetPlayer = this.switchCurrentPlayer();
     } else {
-      alert("can't move");
+      alert('Nie możesz tego zrobić.');
     }
   }
 
@@ -50,20 +50,20 @@ export class AppComponent {
   }
 
   checkWin(player: Player) {
-    winStates.map(state => {
+    winStates.map((state) => {
       const res = state.map((currElement, index) => {
         return player.state[index] * currElement;
-      })
+      });
       if (state.toString().includes(res.toString())) {
         this.endGame(player);
       }
-    })
+    });
   }
 
   endGame(player) {
-    alert(this.currnetPlayer.name + ' Win');
-    this.player1 = new Player('Bibi');
-    this.player2 = new Player('Ganz');
+    alert(this.currnetPlayer.name + ' Wygrywa');
+    this.player1 = new Player('Krzyżyk');
+    this.player2 = new Player('Kółko');
     this.board = [null, null, null, null, null, null, null, null, null];
     this.moveCounter = 0;
   }

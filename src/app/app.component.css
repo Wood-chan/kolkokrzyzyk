@@ -1,17 +1,14 @@
-p {
-  font-family: Lato;
-}
 .board {
-    width: 220px;
-    display: flex;
-    flex-wrap: wrap;
+  width: 220px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .box {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background: #3d4250;
   border: 1px solid;
-  font-family: "FontAwesome";
+  font-family: 'FontAwesome';
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,11 +22,11 @@ p {
   background: #78bec5;
 }
 
-.x::after{
-  content:"\f00d";
-  color:#dc685a;
+.x::after {
+  content: '\f00d';
+  color: #dc685a;
 }
-.o::after{
-  content:"\f10c";
-  color:#ecaf4f;
+.o::after {
+  content: '\f10c';
+  color: #ecaf4f;
 }
